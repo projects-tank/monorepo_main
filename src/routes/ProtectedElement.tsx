@@ -63,10 +63,12 @@ export const flatRoutes = ({ auth, location, routeArr }: FlatRoutesProps) => {
         return {
           ...props,
           element: (
-            <Suspense fallback={<div>Loading...</div>}>
-              <ChildComp {...props} />
-              <Outlet />
-            </Suspense>
+            <>
+              <Suspense fallback={<div>Loading...</div>}>
+                <ChildComp {...props} />
+                <Outlet />
+              </Suspense>
+            </>
           )
         };
       })

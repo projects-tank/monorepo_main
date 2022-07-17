@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { useRoutes, useLocation } from 'react-router-dom';
 
 // // Custom Import
 import { preventedRoute } from './PreventedElement';
 import { flatRoutes, routeArr } from './ProtectedElement';
-import NoMatch from './NoMatch';
+const NoMatch = lazy(() => import('./NoMatch'));
 
 export const AppRouter = () => {
   const [auth] = useState(true);
@@ -19,5 +19,5 @@ export const AppRouter = () => {
   ];
   let element = useRoutes(rootRoute);
 
-  return element;
+  return <Suspense>{element}</Suspense>;
 };

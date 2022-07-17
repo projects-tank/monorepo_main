@@ -49,9 +49,11 @@ export const preventedRoute = (auth: boolean) => {
     return {
       ...props,
       element: (
-        <Suspense fallback={<Loader />}>
-          <PreventedElement auth={auth} children={<Comp />} />
-        </Suspense>
+        <>
+          <Suspense fallback={<Loader />}>
+            <PreventedElement auth={auth} children={<Comp />} />
+          </Suspense>
+        </>
       )
     };
   });
